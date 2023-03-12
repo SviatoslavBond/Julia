@@ -9,7 +9,9 @@ const About = () => {
 			<div className={styles.about_foto} data-aos="fade-right">
 				<img src={myFoto} alt="Julia Kulyok" />
 			</div>
-			<div data-aos="fade-left" className={styles.about_descr} >
+			<div
+				data-aos="fade-up"
+				className={styles.about_descr} >
 				<h4>Привет, я Юля</h4>
 				<p className={styles.about_textYellow}>ФОТОГРАФИЯ ДЛЯ
 					МЕНЯ - ЭТО  ЖИЗНЬ</p>
