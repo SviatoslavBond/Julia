@@ -18,7 +18,6 @@ const Header = () => {
 	useEffect(() => {
 		const handleCloseMenu = (event) => {
 			if (event.target !== btnRef.current && event.target.previousElementSibling !== btnRef.current) {
-				console.log('in');
 				setShow(false)
 			}
 		}
@@ -57,7 +56,7 @@ const Header = () => {
 				</ul>
 				<div onClick={() => setIsOpen(!isOpen)} className={styles.burger}>
 					{
-						isOpen ? <AiOutlineCloseCircle size={30} color='#09272c' /> : <AiOutlineMenu size={25} color='#104149' />
+						isOpen ? <AiOutlineCloseCircle size={30} color='white' /> : <AiOutlineMenu size={25} color='#104149' />
 					}
 				</div>
 

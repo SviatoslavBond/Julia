@@ -31,15 +31,14 @@
 		margin-bottom: 35px;
 		text-align: center;
 	}
-	&_decsr {
+
+	p {
+		text-align: center;
+		font-size: 18px;
+		color: #183c4d;
+		margin-bottom: 27px;
+		line-height: 25px;
 	}
-}
-p {
-	text-align: center;
-	font-size: 18px;
-	color: #183c4d;
-	margin-bottom: 27px;
-	line-height: 25px;
 }
 
 @media (max-width: 1000px) {

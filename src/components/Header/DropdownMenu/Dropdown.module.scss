@@ -19,6 +19,7 @@
 		li {
 			position: relative;
 			display: inline-block;
+			margin-bottom: 20px;
 		}
 		li:after {
 			content: "";
@@ -69,7 +70,10 @@
 @media (max-width: 800px) {
 	.dropdown {
 		&_menu {
-			top: -30px;
+			min-width: 160px;
+			top: 15px;
+			left: 145px;
+			padding: 15px;
 			a {
 				margin-bottom: 0px;
 				margin-top: 0px;

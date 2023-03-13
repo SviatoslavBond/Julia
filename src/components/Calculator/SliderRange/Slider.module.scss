@@ -1,0 +1,112 @@
+.slider {
+	padding: 50px;
+	width: 320px;
+	&_input {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		height: 8px;
+		width: 100%;
+		border-radius: 5px;
+		border: none;
+		outline: none;
+	}
+	.value {
+		position: absolute;
+		font-size: 15px;
+		font-weight: 500;
+		color: #ffff;
+	}
+	.left {
+		left: -15px;
+	}
+	.right {
+		right: -22px;
+	}
+	&_bar {
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 8px;
+		display: block;
+		background-color: #ac9b6f58;
+		border-radius: 5px;
+	}
+	&_fill {
+		display: block;
+		width: 0%;
+		height: 100%;
+		border-radius: 5px;
+		background-color: #998e73;
+	}
+	&_container {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&_input::-webkit-slider-thumb {
+		position: relative;
+		z-index: 12;
+		-webkit-appearance: none;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		border: 2px solid #fff;
+		background-color: #ae8547;
+		box-shadow: 0 0 0 2px #ae854771;
+		cursor: pointer;
+		outline: none;
+		transition: all 0.3s ease-in-out;
+	}
+	&_input::-webkit-slider-thumb:hover {
+		box-shadow: 0 0 0 5px #ae854771;
+	}
+	&_input:active::-webkit-slider-thumb:hover {
+		box-shadow: 0 0 0 7px #ae85475c;
+	}
+	&_input::-moz-range-thumb {
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background-color: #ae8547;
+		box-shadow: 0 0 0 2px #ae854771;
+		cursor: pointer;
+		outline: none;
+		transition: all 0.3s ease-in-out;
+	}
+	&_input::-moz-range-thumb:hover {
+		box-shadow: 0 0 0 5px #ae854771;
+	}
+	&_input:active::-moz-range-thumb:hover {
+		box-shadow: 0 0 0 7px #ae85475c;
+	}
+}
+
+.slider_value {
+	position: relative;
+	width: 100%;
+	span {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		background-color: #baa46e;
+		color: #d9d9d9;
+		top: -35px;
+		transition: all 0.3s;
+		transform: translateX(-50%) scale(0);
+		z-index: 2;
+	}
+}
+.show {
+	span {
+		transform: translateX(-50%) scale(1);
+	}
+}
