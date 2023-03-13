@@ -17,7 +17,8 @@ const Header = () => {
 
 	useEffect(() => {
 		const handleCloseMenu = (event) => {
-			if (event.target !== btnRef.current) {
+			if (event.target !== btnRef.current && event.target.previousElementSibling !== btnRef.current) {
+				console.log('in');
 				setShow(false)
 			}
 		}
@@ -35,10 +36,10 @@ const Header = () => {
 				</Link>
 				<ul {...handlers} className={clsx(styles.menu, { [styles.active]: isOpen })}>
 					<li className={styles.menu_photo}>
-						<a className={styles.menu_item} href='/photo'>
+						<a ref={btnRef} onClick={() => setShow(!show)} className={styles.menu_item} href='#'>
 							Photo
 						</a>
-						<button className={styles.menu_btn} onClick={() => setShow(!show)} ref={btnRef} ></button>
+						<button className={styles.menu_btn} onClick={() => setShow(!show)}  ></button>
 
 						<Dropdown isShow={show} />
 
