@@ -14,17 +14,17 @@ const SliderRange = ({ max, min, step, onChange }) => {
 		setWidthFillBar((((+e.target.value - min) * 100) / (max - min)));
 		setOfssetCircle((+e.target.value - min) * 10);
 	}
-
+	console.log('render slider');
 
 
 
 	return (
-		<div className={styles.slider}>
-			<div style={{ left: `${ofssetCircle}%` }} className={clsx(styles.slider_value, { [styles.show]: touchingThumb })}>
+		<span className={styles.slider}>
+			<span style={{ left: `${ofssetCircle}%` }} className={clsx(styles.slider_value, { [styles.show]: touchingThumb })}>
 				<span>{rangeValue}/h</span>
-			</div>
-			<div className={styles.slider_container}>
-				<div className={clsx(styles.value, styles.left)}>5</div>
+			</span>
+			<span className={styles.slider_container}>
+				<span className={clsx(styles.value, styles.left)}>5</span>
 				<span className={clsx(styles.slider_bar)}>
 					<span style={{ width: `${widthFillBar}%` }} className={styles.slider_fill}></span>
 				</span>
@@ -39,9 +39,9 @@ const SliderRange = ({ max, min, step, onChange }) => {
 
 					type="range"
 					className={styles.slider_input} min={min} max={max} step={step} />
-				<div className={clsx(styles.value, styles.right)}>14</div>
-			</div>
-		</div>
+				<span className={clsx(styles.value, styles.right)}>14</span>
+			</span>
+		</span>
 
 	)
 }
