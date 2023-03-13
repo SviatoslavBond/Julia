@@ -1,17 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { useSwipeable } from 'react-swipeable';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai'
 import styles from './Header.module.scss'
-const Header = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const handlers = useSwipeable({
-		onSwipedLeft: (eventData) => setIsOpen(!isOpen),
+import Dropdown from './DropdownMenu/Dropdown';
 
+const Header = () => {
+	const [show, setShow] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
+	const btnRef = useRef(null);
+	const handlers = useSwipeable({
+		onSwipedLeft: () => setIsOpen(!isOpen),
 	});
 	document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 
+	useEffect(() => {
+		const handleCloseMenu = (event) => {
+			if (event.target !== btnRef.current) {
+				setShow(false)
+			}
+		}
+		document.addEventListener('click', handleCloseMenu)
+		return () => {
+			document.removeEventListener('click', handleCloseMenu)
+		}
+	}, [btnRef]);
 
 	return (
 		<header >
@@ -20,18 +34,22 @@ const Header = () => {
 					<h2>Julia Kulyok</h2>
 				</Link>
 				<ul {...handlers} className={clsx(styles.menu, { [styles.active]: isOpen })}>
-					<li>
-						<a href='/photo'>
+					<li className={styles.menu_photo}>
+						<a className={styles.menu_item} href='/photo'>
 							Photo
 						</a>
+						<button className={styles.menu_btn} onClick={() => setShow(!show)} ref={btnRef} ></button>
+
+						<Dropdown isShow={show} />
+
 					</li>
 					<li>
-						<a href='/price'>
+						<a className={styles.menu_item} href='/price'>
 							Price
 						</a>
 					</li>
-					<li>
-						<a href='/contacts'>
+					<li >
+						<a className={styles.menu_item} href='/contacts'>
 							Contacts
 						</a>
 					</li>
@@ -40,10 +58,10 @@ const Header = () => {
 					{
 						isOpen ? <AiOutlineCloseCircle size={30} color='#09272c' /> : <AiOutlineMenu size={25} color='#104149' />
 					}
-
 				</div>
 
 			</div>
+			<div className={styles.devider}></div>
 
 		</header>
 	)

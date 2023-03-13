@@ -1,3 +1,32 @@
+%style-after-underline {
+	content: "";
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: -3px;
+	width: 0;
+	height: 1px;
+	background-color: rgb(26, 114, 138);
+	transition: width 0.3s;
+}
+
+%style-after-hover-underline {
+	content: "";
+	width: 100%;
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+	height: 1px;
+	background-color: rgb(26, 114, 138);
+	transition: width 0.3s;
+}
+.devider {
+	width: 100%;
+	height: 1px;
+	background-color: #a1a2a3;
+}
+
 .wrapper {
 	display: flex;
 	position: relative;
@@ -17,37 +46,31 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 	font-weight: 400;
-	li {
+
+	&_btn {
+		position: relative;
+		margin-left: 10px;
+		background-color: transparent;
+		width: 25px;
+		transition: all 0.3s;
+	}
+	&_btn:hover {
+		background-color: rgba(175, 175, 175, 0.264);
+		border-radius: 3px;
+	}
+	&_btn:after {
+		content: "";
+		border-bottom: 0;
+		border-left: 0.4em solid transparent;
+		border-right: 0.4em solid transparent;
+		border-top: 0.4em solid;
+		display: inline-block;
+		vertical-align: 0.255em;
+	}
+
+	&_item {
 		margin-left: 100px;
-	}
-	a:after {
-		content: "";
-		display: block;
-		position: absolute;
-		right: 0;
-		bottom: -3px;
-		width: 0;
-		height: 1px;
-		background-color: rgb(26, 114, 138);
-		transition: width 0.3s;
-	}
-	a:hover:after {
-		content: "";
-		width: 100%;
-		display: block;
-		position: absolute;
-		left: 0;
-		bottom: -3px;
-		height: 1px;
-		background-color: rgb(26, 114, 138);
-		transition: width 0.3s;
-	}
-	a:hover {
-		color: #097584;
-	}
-	a {
 		position: relative;
 		color: rgba(18, 38, 49, 0.85);
 		font-weight: 400;
@@ -55,7 +78,19 @@
 		text-transform: uppercase;
 		transition: all 0.3s;
 		cursor: pointer;
+		a {
+			color: rgba(18, 38, 49, 0.85);
+		}
+		a:hover {
+			color: #097584;
+		}
 	}
+	// &_item:after {
+	// 	@extend %style-after-underline;
+	// }
+	// &_item:hover:after {
+	// 	@extend %style-after-hover-underline;
+	// }
 }
 
 @media (max-width: 1000px) {
@@ -67,7 +102,7 @@
 	}
 	.menu {
 		font-size: 20px;
-		li {
+		&_item {
 			margin-left: 50px;
 		}
 	}
@@ -87,7 +122,6 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		background-color: rgba(73, 113, 122, 0.97);
-		// background-color: #09272c;
 		position: fixed;
 		top: 0;
 		left: -100%;
@@ -96,11 +130,18 @@
 		height: 100vh;
 		z-index: 10;
 		transition: all 0.5s;
+		&_btn {
+			height: 20px;
+		}
+		&_btn:after {
+			border-top: 0.4em solid transparent;
+			border-bottom: 0.4em solid transparent;
+			border-left: 0.4em solid;
+		}
 		li {
 			margin-bottom: 40px;
 			margin-left: 0px;
 		}
-
 		a {
 			color: white;
 		}

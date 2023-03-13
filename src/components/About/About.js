@@ -6,7 +6,9 @@ const About = () => {
 
 	return (
 		<div className={styles.about}>
-			<div className={styles.about_foto} data-aos="fade-right">
+			<div className={styles.about_foto}
+				data-aos="fade-up"
+			>
 				<img src={myFoto} alt="Julia Kulyok" />
 			</div>
 			<div

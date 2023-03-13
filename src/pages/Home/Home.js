@@ -8,7 +8,6 @@ const Home = () => {
 	return (
 		<>
 			<Header />
-			<div className={styles.devider}></div>
 			<Gallery />
 			<About />
 		</>
