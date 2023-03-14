@@ -32,7 +32,7 @@ const Calculator = () => {
 							</div>
 							<div>
 								<p className='calculator_text'>Выбирите длительность свадебной фотосессии</p>
-								<div className='slider-big'>
+								<div className='range-big range'>
 									<SliderRange onChange={changeNumberOfHours} label={'h'} max={14} min={5} step={1} />
 								</div>
 							</div>
@@ -65,7 +65,7 @@ const Calculator = () => {
 										</p>
 
 									</label>
-									<div className='slider-small'>
+									<div className='range-small range'>
 										<SliderRange label={'h'} max={2} min={1} step={1} />
 									</div>
 								</div>
@@ -77,7 +77,7 @@ const Calculator = () => {
 										</p>
 
 									</label>
-									<div className='slider-big'>
+									<div className='range-big range'>
 										<SliderRange label={'f'} max={50} min={1} step={1} />
 									</div>
 								</div>

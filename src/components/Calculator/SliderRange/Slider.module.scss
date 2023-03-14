@@ -1,6 +1,6 @@
 .slider {
 	position: relative;
-	padding: 50px;
+	padding: 45px 0 0 0;
 	width: 100%;
 	display: inline-block;
 	touch-action: none; // important
@@ -17,6 +17,17 @@
 		border: none;
 		outline: none;
 		transition: all 0.3s;
+		cursor: pointer;
+	}
+	&_input:focus {
+		outline: none;
+	}
+	&_input::-ms-track {
+		width: 100%;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
 	}
 	.value {
 		position: absolute;
@@ -71,8 +82,7 @@
 		transition: all 0.2s linear;
 		transform: translate(-50%, -50%);
 	}
-	&_thumb {
-	}
+
 	&_input::-webkit-slider-thumb {
 		position: relative;
 		z-index: 12;
@@ -82,14 +92,12 @@
 		background-color: transparent;
 		cursor: pointer;
 		outline: none;
+		border: none;
 	}
 	&_input::-moz-range-thumb {
-		width: 20px;
-		height: 20px;
 		background-color: transparent;
-		cursor: pointer;
 		outline: none;
-		transition: all 0.2s linear;
+		border: none;
 	}
 }
 

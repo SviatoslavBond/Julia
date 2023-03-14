@@ -3,23 +3,21 @@
 	cursor: pointer;
 
 	&_menu {
-		transition: all 0.3s;
 		position: absolute;
-		min-width: 200px;
-		padding: 30px;
-		background: rgba(119, 159, 168, 0.72);
-		border-radius: 6px;
 		top: 25px;
 		left: 195px;
 		z-index: 10;
+		min-width: 200px;
+		background: rgba(119, 159, 168, 0.72);
+		border-radius: 6px;
 		transition: all 0.3s;
-		opacity: 0;
-		visibility: hidden;
+		max-height: 0;
+		overflow: hidden;
 
 		li {
 			position: relative;
 			display: inline-block;
-			margin-bottom: 20px;
+			margin: 10px 0;
 		}
 		li:after {
 			content: "";
@@ -48,8 +46,7 @@
 			font-size: 15px;
 			display: block;
 			letter-spacing: 0.21em;
-			margin-top: 20px;
-			margin-bottom: 10px;
+
 			line-height: 18px;
 			color: #fff;
 			transition: all 0.3s;
@@ -64,16 +61,19 @@
 }
 
 .show {
-	opacity: 1;
-	visibility: visible;
+	max-height: 350px;
+	padding: 15px 20px;
 }
 @media (max-width: 800px) {
 	.dropdown {
 		&_menu {
+			position: relative;
 			min-width: 160px;
 			top: 15px;
-			left: 145px;
-			padding: 15px;
+			left: 25px;
+			display: flex;
+			flex-direction: column;
+
 			a {
 				margin-bottom: 0px;
 				margin-top: 0px;
