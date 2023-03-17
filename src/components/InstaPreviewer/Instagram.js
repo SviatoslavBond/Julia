@@ -9,6 +9,7 @@ import { fetchInstaData } from '../../utils/fetchInstaData';
 const Instagram = () => {
 	const [instaData, setInstaData] = useState([]);
 	const [errorInstaFetch, setErorrInstaFetch] = useState(false);
+	console.log(process.env);
 
 
 	useEffect(() => {
