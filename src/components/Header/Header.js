@@ -29,39 +29,42 @@ const Header = () => {
 
 	return (
 		<header >
-			<div className={styles.wrapper}>
-				<Link className={styles.logo} to='/' >
-					<h2>Julia Kulyok</h2>
-				</Link>
-				<ul {...handlers} className={clsx(styles.menu, { [styles.active]: isOpen })}>
-					<li className={styles.menu_photo}>
-						<a ref={btnRef} onClick={() => setShow(!show)} className={styles.menu_item} href='#'>
-							Photo
-						</a>
-						<button className={styles.menu_btn} onClick={() => setShow(!show)}  ></button>
+			<div className='container'>
+				<div className={styles.wrapper}>
+					<Link className={styles.logo} to='/' >
+						<h2>Julia Kulyok</h2>
+					</Link>
+					<ul {...handlers} className={clsx(styles.menu, { [styles.active]: isOpen })}>
+						<li className={styles.menu_photo}>
+							<a ref={btnRef} onClick={() => setShow(!show)} className={styles.menu_item} href='#'>
+								Photo
+							</a>
+							<button className={styles.menu_btn} onClick={() => setShow(!show)}  ></button>
 
-						<Dropdown isShow={show} />
+							<Dropdown isShow={show} />
 
-					</li>
-					<li>
-						<a className={styles.menu_item} href='/price'>
-							Price
-						</a>
-					</li>
-					<li >
-						<a className={styles.menu_item} href='/contacts'>
-							Contacts
-						</a>
-					</li>
-				</ul>
-				<div onClick={() => setIsOpen(!isOpen)} className={styles.burger}>
-					{
-						isOpen ? <AiOutlineCloseCircle size={30} color='white' /> : <AiOutlineMenu size={25} color='#104149' />
-					}
+						</li>
+						<li>
+							<a className={styles.menu_item} href='/price'>
+								Price
+							</a>
+						</li>
+						<li >
+							<a className={styles.menu_item} href='/contacts'>
+								Contacts
+							</a>
+						</li>
+					</ul>
+					<div onClick={() => setIsOpen(!isOpen)} className={styles.burger}>
+						{
+							isOpen ? <AiOutlineCloseCircle size={30} color='white' /> : <AiOutlineMenu size={25} color='#104149' />
+						}
+					</div>
+
 				</div>
-
+				<div className={styles.devider}></div>
 			</div>
-			<div className={styles.devider}></div>
+
 
 		</header>
 	)

@@ -22,7 +22,7 @@ const Calculator = () => {
 						<div className='calculator_inner' >
 							<div className='countries' >
 								<p className='calculator_text countries_text'>Укажите страну проведения свадьбы </p>
-								<select name="countries" >
+								<select className='countries__select' name="countries" >
 									{
 										countries.map(({ price, country }) => {
 											return <option key={country} value={price}>{country}</option>

@@ -19,7 +19,7 @@
 		margin-bottom: 25px;
 	}
 	.range-big {
-		width: 320px;
+		max-width: 320px;
 		padding-left: 50px;
 	}
 	.range-small {
@@ -27,7 +27,12 @@
 		width: 160px;
 	}
 	.countries {
+		&__select {
+			padding: 10px;
+			border-radius: 5px;
+		}
 		margin-bottom: 35px;
+
 		&_text {
 			margin-bottom: 20px;
 		}
@@ -78,6 +83,9 @@
 	.calculator {
 		&_wrap {
 			padding: 50px 10px;
+		}
+		.range {
+			max-width: 280px;
 		}
 	}
 }

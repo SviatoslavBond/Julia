@@ -3,18 +3,19 @@ import Header from '../../components/Header/Header';
 import Gallery from '../../components/Gallery/Gallery';
 import About from '../../components/About/About';
 import Calculator from '../../components/Calculator/Calculator';
+import Instagram from '../../components/InstaPreviewer/Instagram';
 import styles from './Home.module.scss'
 const Home = () => {
 
 	return (
 		<>
-			<div className='container'>
-				<Header />
-				<Gallery />
-				<About />
-			</div>
+			<Header />
+			<Gallery />
+			<About />
+
 
 			<Calculator />
+			<Instagram />
 		</>
 	)
 }

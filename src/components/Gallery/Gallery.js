@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Gallery.module.scss'
+import './Gallery.scss'
 const images = require.context('../../assets/homeGallery', false, /\.(png|jpe?g|svg|webp)$/);
 const imageList = images.keys().sort((a, b) => {
 	const regex = /(\d+)/;
@@ -12,16 +12,22 @@ const Gallery = () => {
 
 	return (
 
-		<div className={styles.gallery}>
-			{
-				imageList.map((url, i) => {
-					return (
-						<div data-aos='zoom-in' data-aos-duration="500" key={i}>
-							<img src={url} alt='foto in Paris' />
-						</div>
-					)
-				})
-			}
+		<div className='gallery'>
+			<div className='container'>
+				<div className="gallery__inner">
+					{
+						imageList.map((url, i) => {
+							return (
+								<div className='gallery__item' data-aos='zoom-in' data-aos-duration="500" key={i}>
+									<img src={url} alt='foto in Paris' />
+								</div>
+							)
+						})
+					}
+				</div>
+
+			</div>
+
 		</div>
 
 	)
