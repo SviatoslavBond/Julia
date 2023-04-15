@@ -1,0 +1,85 @@
+.up-list {
+}
+.up-item {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.up-item:hover .up-block {
+	display: block;
+}
+.up-item:hover .opacity {
+	display: block;
+}
+.up-photo {
+	width: 100%;
+	height: 100%;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 5px;
+	}
+}
+.up-block {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	color: white;
+	font-size: 16px;
+}
+
+.up-icons {
+	color: white;
+	font-size: 20px;
+	opacity: 0.75;
+	transition: all 0.3s;
+}
+
+.opacity {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	border-radius: 5px;
+	opacity: 0.45;
+}
+
+.cover-button {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	transform: translateY(-50%);
+}
+.up-icons-cover {
+	font-size: 30px;
+	border-radius: 2px;
+}
+.up-icons-cover:hover {
+	opacity: 1;
+}
+.delete-button {
+	position: absolute;
+	top: 80%;
+	width: 100%;
+}
+.up-icons-delete:hover {
+	color: red;
+}
+.up-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	span {
+		margin-top: 10px;
+	}
+}

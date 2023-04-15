@@ -1,7 +1,7 @@
 .description {
 	background: #9ab7bd;
 	border-radius: 20px;
-	max-width: 400px;
+	min-width: 400px;
 	padding: 20px;
 
 	&_price {
@@ -48,32 +48,70 @@
 			border-radius: 3px;
 		}
 	}
-	.field {
-		margin-top: 15px;
-		padding: 0 25px;
-		&_textarea,
-		input {
-			border-radius: 10px;
-			height: 30px;
-			width: 100%;
-			display: block;
-			margin: 0 auto;
-		}
-		&_textarea {
-			height: 60px;
-			margin-bottom: 10px;
-		}
-		&_text {
-			font-size: 14px;
-			margin-bottom: 10px;
-			color: #ffffff;
-		}
+}
+.field {
+	margin-top: 15px;
+	padding: 0 25px;
+	&_textarea,
+	input {
+		position: relative;
+		border-radius: 10px;
+		height: 45px;
+		width: 100%;
+		display: block;
+		margin: 0 auto;
+		padding-left: 15px;
+		font-size: 18px;
+	}
+	input:focus {
+		border: 1px solid #0c3548;
+	}
+	&_textarea:focus {
+		border: 1px solid #0c3548;
+	}
+	input::-webkit-input-placeholder {
+		color: #9ab7bd;
+	}
+	input:focus::placeholder {
+		opacity: 0;
+	}
+	input:focus::-moz-placeholder {
+		opacity: 0;
+	}
+	input:focus:-moz-placeholder {
+		opacity: 0;
+	}
+	&_textarea {
+		border-radius: 10px;
+		padding: 15px;
+		height: 60px;
+		font-size: 15px;
+		margin-bottom: 10px;
+		resize: none;
+		border: #9f9f9f;
+	}
+
+	&_text {
+		font-size: 14px;
+		margin-bottom: 10px;
+		color: #ffffff;
 	}
 }
 @media (max-width: 1000px) {
 	.description {
 		// margin-top: 50px;
 		margin: 50px auto;
-		max-width: 100%;
+		min-width: 100%;
+	}
+}
+@media (max-width: 500px) {
+	.description {
+		&_text {
+			font-size: 14px;
+		}
+	}
+
+	.field {
+		padding: 0 10px;
 	}
 }

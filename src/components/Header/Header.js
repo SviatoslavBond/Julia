@@ -5,8 +5,9 @@ import { useSwipeable } from 'react-swipeable';
 import { AiOutlineMenu, AiOutlineCloseCircle } from 'react-icons/ai'
 import styles from './Header.module.scss'
 import Dropdown from './DropdownMenu/Dropdown';
-
+import Devider from 'components/UI/Devider/Devider';
 const Header = () => {
+
 	const [show, setShow] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const btnRef = useRef(null);
@@ -30,6 +31,7 @@ const Header = () => {
 	return (
 		<header >
 			<div className='container'>
+
 				<div className={styles.wrapper}>
 					<Link className={styles.logo} to='/' >
 						<h2>Julia Kulyok</h2>
@@ -40,12 +42,10 @@ const Header = () => {
 								Photo
 							</a>
 							<button className={styles.menu_btn} onClick={() => setShow(!show)}  ></button>
-
 							<Dropdown isShow={show} />
-
 						</li>
 						<li>
-							<a className={styles.menu_item} href='/price'>
+							<a className={styles.menu_item} href='#price'>
 								Price
 							</a>
 						</li>
@@ -54,7 +54,9 @@ const Header = () => {
 								Contacts
 							</a>
 						</li>
+
 					</ul>
+
 					<div onClick={() => setIsOpen(!isOpen)} className={styles.burger}>
 						{
 							isOpen ? <AiOutlineCloseCircle size={30} color='white' /> : <AiOutlineMenu size={25} color='#104149' />
@@ -62,7 +64,7 @@ const Header = () => {
 					</div>
 
 				</div>
-				<div className={styles.devider}></div>
+				<Devider width={100} bg={'#a1a2a3'} height={'1'} />
 			</div>
 
 

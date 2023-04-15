@@ -1,27 +1,13 @@
 import axios from 'axios'
 import React from 'react'
-import './formCalc.scss'
-const TOKEN = 'IGQVJYYnNqZAVlWME9odHhPelFncXZAsUHVHcDhBMTU3UGpLcWZAZAZAXRDS0xXMUpuRVhhRnI2eEl1VVhrU0ZAULXVQczEwZAUNsZAGNEbVVuYlZAadEh4TmpMOFdBN0NsNUN0SlAwaHA0MS1meHlrcnM0bmxfTwZDZD';
 
-const refreshedToken = 'IGQVJXdGc2T2JwMkI1dTJaSHE1NVFnUk1udzFVcmJMNjRtc2ZASVjIxRlprSXVMYTNWOU9nT0x2bm5QamhXT1EybkJwRUNyQXVPVU1ielV0UmU5WmxwVm15blBHN1BnX0taTWE2RWZA3'
-const baseEndPoint = "https://graph.instagram.com";
-const fields = 'id,media_type,media_url,timestamp,thumbnail_url,permalink';
+import './formCalc.scss'
+
 
 const FormCalc = () => {
 
 	const getInsta = (e) => {
 		e.preventDefault();
-
-
-		axios.get(`${baseEndPoint}/me/media?fields=${fields}&access_token=${refreshedToken}`)
-			.then(res => {
-				const json = JSON.stringify(res.data.data);
-				window.localStorage.setItem('instagramPhoto', json)
-				console.log(res.data.data)
-				console.log(`from api`)
-			})
-			.catch(er => console.log(er))
-
 
 	}
 
@@ -57,24 +43,27 @@ const FormCalc = () => {
 
 				<div className='field'>
 					<p className='form_text field_text'>Имя и Фамилия</p>
-					<input type="text" name='name' />
+					<input placeholder='Имя и Фамилия' type="text" name='name' />
 				</div>
 				<div className='field '>
 					<p className='form_text field_text'>Email</p>
-					<input type="text" name='email' />
+					<input placeholder='Email' type="text" name='email' />
 				</div>
 				<div className='field '>
 					<p className='form_text field_text'>Телефон</p>
-					<input type="tel" name='phone' />
+					<input placeholder='Телефон' type="tel" name='phone' />
 				</div>
 				<div className='field'>
 					<p className='form_text field_text'>Короткая  заметка о вашей свадьбе*</p>
-					<textarea className='field_textarea'>
-
+					<textarea onInput={(e) => {
+						e.target.style.height = '60px'
+						e.target.style.height = `${e.target.scrollHeight}px`
+					}} className='field_textarea' rows='auto'>
 					</textarea>
 					<p className='form_text field_text'>
 						*Укажите пожалуйста если уже назначили -
 						дату свадьбы и город проведения торжества</p>
+
 				</div>
 				<div className='form_button'>
 					<button onClick={getInsta} >Отправить</button>

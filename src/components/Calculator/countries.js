@@ -1,6 +1,6 @@
 export const countries = [
-	{ country: "Украина", price: 100 },
 	{ country: "Черногория", price: 120 },
+	{ country: "Украина", price: 100 },
 	{ country: "Венгрия", price: 150 },
 	{ country: "Словакия", price: 150 },
 	{ country: "Польща", price: 150 },

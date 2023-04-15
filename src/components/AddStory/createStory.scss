@@ -1,0 +1,24 @@
+.nameStory {
+	padding: 5px 15px;
+	border: 1px solid #333;
+}
+.newStory {
+	&__title {
+		margin-bottom: 20px;
+		font-size: 18px;
+	}
+	&__input {
+		border: 1px solid #afadad;
+		transition: all 0.3s;
+	}
+	&__input:focus {
+		border: 1px solid #484747;
+	}
+	&__select {
+		background-color: #cb9c4a;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+		text-transform: uppercase;
+	}
+}

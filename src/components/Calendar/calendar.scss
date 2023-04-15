@@ -1,0 +1,94 @@
+.calendar {
+	display: block;
+	color: #343434;
+	border-bottom-color: #bbb;
+	max-width: 350px;
+	background: #fff;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+	border-radius: 7px;
+	&__inner {
+		padding: 20px;
+	}
+	&__nav {
+		display: flex;
+		margin-bottom: 10px;
+		justify-content: space-between;
+	}
+
+	&__btn--prev {
+		order: 1;
+	}
+	&__btn--prev:hover {
+		transform: translateX(-2px);
+	}
+	&__btn--next {
+		order: 3;
+	}
+	&__btn--next:hover {
+		transform: translateX(2px);
+	}
+	&__btn {
+		font-size: 23px;
+		color: #575656;
+		cursor: pointer;
+		transition: all 0.3s;
+	}
+	&__btn:hover {
+		color: #6e6d6d;
+	}
+	&__label {
+		order: 2;
+		position: relative;
+		display: inline-block;
+		z-index: 9999;
+		overflow: hidden;
+		margin: 0;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 21px;
+		color: #9c7f37;
+		transition: all 0.3s;
+	}
+	&__label:hover {
+		transform: translateY(-2px);
+	}
+	&__label:not(:first-of-type) {
+		margin-left: 5px;
+	}
+	&__select-month,
+	&__select-year {
+		cursor: pointer;
+		position: absolute;
+		z-index: 9998;
+		margin: 0;
+		left: 0;
+		opacity: 0;
+	}
+
+	&__day {
+		text-align: center;
+		padding: 10px;
+		cursor: pointer;
+	}
+	&__day:hover {
+		background-color: #9c7f37;
+	}
+	&__day--vocation {
+		color: #b00000;
+	}
+	&__th {
+		padding-top: 20px;
+		padding-bottom: 16px;
+		color: #000;
+		opacity: 0.5;
+		abbr {
+			cursor: help;
+			border-bottom: none;
+			text-decoration: none;
+		}
+	}
+	table {
+		width: 100%;
+	}
+}

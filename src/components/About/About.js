@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './About.module.scss';
-import myFoto from '../../assets/about/myFoto.webp';
+import myFoto from 'assets/about/myFoto.webp';
 
 const About = () => {
 

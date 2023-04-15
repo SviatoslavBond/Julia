@@ -1,9 +1,8 @@
 import clsx from 'clsx'
 import React from 'react'
 import styles from './Dropdown.module.scss'
-import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import { Link } from 'react-router-dom'
 const Dropdown = ({ isShow }) => {
-
 
 	return (
 		<div className={clsx(styles.dropdown,
@@ -13,35 +12,20 @@ const Dropdown = ({ isShow }) => {
 				{ [styles.show]: isShow }
 			)}>
 				<li>
-					<a href="#">Wedding</a>
+					<Link to='/weddings'>Wedding</Link>
 				</li>
 				<li>
-					<a href="#">Love Story</a>
+					<Link to='/lovestory'>Love Story</Link>
 				</li>
 				<li>
-					<a href="#">Family</a>
+					<Link to='/family'>Family</Link>
 				</li>
-				<li>
+				{/* <li>
 					<a href="#">Content</a>
-				</li>
+				</li> */}
 			</ul>
 		</div>
-		// <Collapse in={isShow} timeout="auto" unmountOnExit>
-		// 	<ul className={styles.dropdown_menu}>
-		// 		<li>
-		// 			<a href="#">Wedding</a>
-		// 		</li>
-		// 		<li>
-		// 			<a href="#">Love Story</a>
-		// 		</li>
-		// 		<li>
-		// 			<a href="#">Family</a>
-		// 		</li>
-		// 		<li>
-		// 			<a href="#">Content</a>
-		// 		</li>
-		// 	</ul>
-		// </Collapse>
+
 	)
 }
 

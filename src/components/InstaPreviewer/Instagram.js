@@ -9,23 +9,24 @@ import { fetchInstaData } from '../../utils/fetchInstaData';
 const Instagram = () => {
 	const [instaData, setInstaData] = useState([]);
 	const [errorInstaFetch, setErorrInstaFetch] = useState(false);
-	console.log(process.env);
-
 
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const { data } = await fetchInstaData();
 				if (!window.localStorage.getItem('instagramPhoto')) {
+					const { data } = await fetchInstaData();
 					setErorrInstaFetch(false)
 					setInstaData(data.data);
 					const json = JSON.stringify(data.data);
 					window.localStorage.setItem('instagramPhoto', json);
-
+					console.log('from api');
+					console.log(data.data);
 				}
 				else {
 					const data = JSON.parse(window.localStorage.getItem('instagramPhoto'));
-					setInstaData(data)
+					setInstaData(data);
+
+					console.log('from local storage');
 				}
 			} catch (error) {
 				setErorrInstaFetch(true)
@@ -69,8 +70,14 @@ const Instagram = () => {
 									const { media_type, media_url, caption, id, permalink } = post
 									const url = media_type === "CAROUSEL_ALBUM" || media_type === 'IMAGE' ? media_url : post.thumbnail_url
 									return (
-										<div className='photobox__item'>
-											<a href={permalink} key={id} >
+										<div
+
+											key={id}
+											className='photobox__item'>
+											<a
+												target={'_blank'}
+												rel='noreferrer'
+												href={permalink}  >
 												<img src={url} alt={caption} />
 											</a>
 										</div>
