@@ -1,24 +1,137 @@
-.nameStory {
-	padding: 5px 15px;
-	border: 1px solid #333;
-}
 .newStory {
+	&__wrap {
+		// border: 1px solid #afadad;
+		border-radius: 10px;
+		box-shadow: 3px 3px 3px #dbdbdb;
+		padding-bottom: 10px;
+	}
 	&__title {
-		margin-bottom: 20px;
 		font-size: 18px;
+		margin-right: 30px;
 	}
 	&__input {
 		border: 1px solid #afadad;
 		transition: all 0.3s;
+		width: 100%;
 	}
 	&__input:focus {
 		border: 1px solid #484747;
 	}
+
+	&__input::-webkit-input-placeholder {
+		color: #9ab7bd;
+	}
+	&__input:focus::placeholder {
+		opacity: 0;
+	}
+	&__input:focus::-moz-placeholder {
+		opacity: 0;
+	}
+	&__input:focus:-moz-placeholder {
+		opacity: 0;
+	}
+	&__main-title {
+		margin-bottom: 40px;
+		h3 {
+			font-size: 32px;
+			text-align: center;
+		}
+	}
+
+	&__slot {
+		position: relative;
+		padding: 0 25px;
+		margin-top: 15px;
+		input {
+			position: relative;
+			border-radius: 10px;
+			height: 45px;
+			display: block;
+			padding-left: 15px;
+		}
+	}
+	&__slot-title {
+		margin-bottom: 15px;
+	}
+	&__btn {
+		background-color: #676767;
+		margin-bottom: 20px;
+		border-radius: 10px;
+		color: #fff;
+		padding: 10px 20px;
+		display: block;
+		margin: 20px auto;
+	}
+	&__btn:not(:disabled) {
+		color: #fff;
+		background-color: #cb9c4a;
+	}
+}
+
+.category {
+	display: flex;
+	align-items: center;
+
 	&__select {
 		background-color: #cb9c4a;
 		padding: 10px 20px;
 		border-radius: 5px;
 		cursor: pointer;
 		text-transform: uppercase;
+	}
+	&__slot-title {
+		margin-right: 30px;
+		margin-bottom: 0;
+	}
+}
+.date {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	&__slot-title {
+		margin-right: 30px;
+		margin-bottom: 0;
+	}
+	#date__hidden-input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		cursor: pointer;
+	}
+	&__field {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background: #fff;
+		border-radius: 4px;
+		border: 1px solid #dbdbdb;
+		outline: none;
+		color: #343434;
+		width: 100%;
+		font-size: 15px;
+		width: 169px;
+		min-height: 35px;
+		padding: 6px 10px 7px;
+		position: relative;
+		z-index: 100;
+	}
+	&__icon {
+		cursor: pointer;
+	}
+}
+.location {
+	input {
+		padding-left: 25px;
+	}
+}
+.story-name {
+	input {
+		font-size: 18px;
+	}
+}
+.story-describe {
+	input {
+		font-size: 18px;
 	}
 }

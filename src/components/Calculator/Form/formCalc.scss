@@ -63,10 +63,10 @@
 		padding-left: 15px;
 		font-size: 18px;
 	}
-	input:focus {
+	&_textarea:focus {
 		border: 1px solid #0c3548;
 	}
-	&_textarea:focus {
+	input:focus {
 		border: 1px solid #0c3548;
 	}
 	input::-webkit-input-placeholder {
@@ -99,7 +99,6 @@
 }
 @media (max-width: 1000px) {
 	.description {
-		// margin-top: 50px;
 		margin: 50px auto;
 		min-width: 100%;
 	}

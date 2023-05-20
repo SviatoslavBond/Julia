@@ -18,6 +18,7 @@ const Header = () => {
 
 	useEffect(() => {
 		const handleCloseMenu = (event) => {
+			console.log(btnRef.current.contains(event.target));
 			if (event.target !== btnRef.current && event.target.previousElementSibling !== btnRef.current) {
 				setShow(false)
 			}

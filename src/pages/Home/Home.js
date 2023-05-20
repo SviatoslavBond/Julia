@@ -6,10 +6,8 @@ import Gallery from 'components/Gallery/Gallery';
 import About from 'components/About/About';
 import Calculator from 'components/Calculator/Calculator';
 import Instagram from 'components/InstaPreviewer/Instagram';
-import Stories from 'components/Story/Stories';
 import { getPathsImages } from 'utils/getPathsImage';
-import CreateStory from 'components/AddStory/CreateStory';
-import { storiesData } from 'services/galleryData/galleryData';
+
 import './Home.scss'
 
 const images = require.context('../../assets/homeGallery', false, /\.(jpe?g|webp)$/);
@@ -30,9 +28,6 @@ const Home = () => {
 
 	return (
 		<div className='home'>
-			{/* <CreateStory /> */}
-			{/* <Stories stories={storiesData.weddings} title={'Wedding'} linkTo={'weddings'} />
-			<Stories stories={storiesData.lovestory} title={'Love story'} linkTo={'lovestory'} /> */}
 			{
 				isAdmin ? (<div className="home__admin">
 					<Link to='/admin' href='/contacts'>

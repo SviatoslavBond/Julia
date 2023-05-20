@@ -1,6 +1,4 @@
 import axios from "axios";
-
-
 const baseEndPoint = "https://graph.instagram.com";
 const fields = 'id,media_type,media_url,timestamp,thumbnail_url,permalink,caption';
 const limit = 9;

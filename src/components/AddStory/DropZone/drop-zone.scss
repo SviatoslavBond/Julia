@@ -1,0 +1,42 @@
+.drop {
+	&__btn {
+		background-color: #676767;
+		border-radius: 10px;
+		color: #fff;
+		padding: 10px 20px;
+	}
+	&__btn:not(:disabled) {
+		color: #fff;
+		background-color: #cb9c4a;
+		cursor: pointer;
+	}
+	&__inner {
+		position: relative;
+		// z-index: 1000;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border: 1px dashed #c6c6c6;
+		border-radius: 5px;
+		margin: 20px 25px;
+		padding: 40px 20px;
+		&--active {
+			background-color: #f1e6d1a9;
+		}
+	}
+
+	&__text {
+		margin: 0;
+		font-size: 20px;
+	}
+}
+.button__upload {
+	position: relative;
+}
+#uploads {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -2;
+}

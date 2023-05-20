@@ -1,0 +1,22 @@
+.check {
+	position: absolute;
+	top: 50%;
+	right: 0;
+	&__danger {
+		color: #aa1818;
+		font-size: 20px;
+	}
+	&__hidden {
+		display: none;
+	}
+	&__visible {
+		color: #39cc34;
+	}
+}
+.error-message {
+	position: absolute;
+	top: 100%;
+	left: 30px;
+	font-size: 13px;
+	color: #aa1818;
+}

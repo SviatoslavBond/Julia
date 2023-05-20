@@ -10,8 +10,7 @@ import Admin from 'pages/AdminPanel/Admin';
 import AddStory from 'components/AddStory/CreateStory';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { storiesContext } from 'services/galleryData/galleryData';
-import { storiesData } from 'services/galleryData/galleryData';
+
 
 
 
@@ -24,21 +23,21 @@ function App() {
 	}, [])
 
 	return (
-		<storiesContext.Provider value={storiesData} >
-			<BrowserRouter>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/weddings' element={<Weddings />} />
-					<Route path='/lovestory' element={<LoveStory />} />
-					<Route path='/family' element={<Family />} />
-					<Route path='/story/:id/:category' element={<Albom />} />
-					<Route path='/admin/*' element={<Admin />}>
-						<Route path='add-story' element={<AddStory />} />
-					</Route>
 
-				</Routes>
-			</BrowserRouter>
-		</storiesContext.Provider>
+		<BrowserRouter>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/weddings' element={<Weddings />} />
+				<Route path='/lovestory' element={<LoveStory />} />
+				<Route path='/family' element={<Family />} />
+				<Route path='/story/:id/:category' element={<Albom />} />
+				<Route path='/admin/*' element={<Admin />}>
+					<Route path='add-story' element={<AddStory />} />
+				</Route>
+
+			</Routes>
+		</BrowserRouter>
+
 
 
 	);

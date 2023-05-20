@@ -1,4 +1,8 @@
 .calendar {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	z-index: 1000;
 	display: block;
 	color: #343434;
 	border-bottom-color: #bbb;
@@ -6,6 +10,9 @@
 	background: #fff;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 	border-radius: 7px;
+	&__show {
+		display: none;
+	}
 	&__inner {
 		padding: 20px;
 	}
@@ -71,8 +78,9 @@
 		padding: 10px;
 		cursor: pointer;
 	}
-	&__day:hover {
+	&__day--is:hover {
 		background-color: #9c7f37;
+		color: #fff;
 	}
 	&__day--vocation {
 		color: #b00000;
@@ -84,6 +92,7 @@
 		opacity: 0.5;
 		abbr {
 			cursor: help;
+			text-transform: uppercase;
 			border-bottom: none;
 			text-decoration: none;
 		}
