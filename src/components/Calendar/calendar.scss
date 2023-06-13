@@ -1,7 +1,4 @@
 .calendar {
-	position: absolute;
-	top: 0;
-	left: 100%;
 	z-index: 1000;
 	display: block;
 	color: #343434;
@@ -10,9 +7,6 @@
 	background: #fff;
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 	border-radius: 7px;
-	&__show {
-		display: none;
-	}
 	&__inner {
 		padding: 20px;
 	}

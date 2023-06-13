@@ -1,10 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
-	stories: {
-		items: [],
-		storiesLoadingStatus: 'loading'
-	},
+	items: [],
+	storiesLoadingStatus: 'loading'
 };
 export const fetchStories = createAsyncThunk(
 	'stories/fetchStories',
@@ -15,15 +13,15 @@ export const fetchStories = createAsyncThunk(
 )
 const fetchStoriesStatus = {
 	[fetchStories.pending]: (state) => {
-		state.stories.storiesLoadingStatus = 'loading'
+		state.storiesLoadingStatus = 'loading'
 	},
 	[fetchStories.fulfilled]: (state, action) => {
-		state.stories.storiesLoadingStatus = 'loaded'
+		state.storiesLoadingStatus = 'loaded'
 
-		state.stories.items = action.payload
+		state.items = action.payload
 	},
 	[fetchStories.rejected]: (state) => {
-		state.stories.storiesLoadingStatus = 'error'
+		state.storiesLoadingStatus = 'error'
 	}
 }
 const storySlice = createSlice({

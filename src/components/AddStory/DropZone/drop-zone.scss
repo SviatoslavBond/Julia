@@ -12,7 +12,6 @@
 	}
 	&__inner {
 		position: relative;
-		// z-index: 1000;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -24,7 +23,12 @@
 			background-color: #f1e6d1a9;
 		}
 	}
-
+	&__progressBar {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 	&__text {
 		margin: 0;
 		font-size: 20px;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const useValid = () => {
 	const [storyName, setNameOfStory] = useState('');
@@ -13,6 +13,7 @@ export const useValid = () => {
 	const [errorLocation, setErrorLocation] = useState('This field is required');
 	const [errorDate, setErrorDate] = useState(true);
 	const [errorTitle, setErrorTitle] = useState('Title is required');
+	const [error, setError] = useState(false)
 	const [formValid, setFormValid] = useState(false);//Change
 
 	const blurHandler = (e) => {
@@ -32,11 +33,17 @@ export const useValid = () => {
 			default:
 		}
 	}
+	// useEffect(() => {
+	// 	if (localStorage.getItem('story')) {
+	// 		const memorizeDate = JSON.parse(localStorage.getItem('story'));
+	// 		setNameOfStory(memorizeDate.storyName);
+	// 	}
+	// }, [])
 	const setToInitialStateOfForm = () => {
 		setNameOfStory('');
 		setLocation('');
 		setDate('');
-		setTitle('')
+		setTitle('');
 		setNameDirty(false);
 		setLocationDirty(false);
 		setDateDirty(false);
@@ -45,10 +52,10 @@ export const useValid = () => {
 		setErrorLocation('This field is required');
 		setErrorDate(true);
 		setErrorTitle('Title is required');
+		setError(false);
 	}
 
 	const changeHandler = (e) => {
-		console.log(e);
 		if (typeof e !== "string") {
 			// eslint-disable-next-line default-case
 			switch (e.target.name) {
@@ -93,10 +100,13 @@ export const useValid = () => {
 		blurHandler,
 		setToInitialStateOfForm,
 		changeHandler,
+		setError,
 		storyName,
 		location,
 		date,
 		title,
+		error,
+
 		titleDirty,
 		storyNameDirty,
 		locationDirty,

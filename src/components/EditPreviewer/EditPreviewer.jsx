@@ -44,29 +44,27 @@ const EditPreviewer = ({ images, countColumn = 5, heightRow = 150, setPhoto }) =
 		setPhoto(nextState)
 	}
 	return (
-		<div className='up-list'>
+		<GridContextProvider
+			onChange={onChange}>
+			<GridDropZone
+				className="dropzone "
+				id="photos"
+				boxesPerRow={countColumn}
+				rowHeight={heightRow}
+				style={{ height: heightRow * Math.ceil(items.length / countColumn) }}
+			>
+				{
+					items.map(foto => {
+						return (<GridItem
+							className="grid-item"
+							key={foto.id}>
+							<PreviewItem foto={foto} deleteImage={deleteImage} setCoverImage={setCoverImage} />
+						</GridItem>)
+					})
+				}
+			</GridDropZone>
+		</GridContextProvider>
 
-			<GridContextProvider
-				onChange={onChange}>
-				<GridDropZone
-					className="dropzone "
-					id="photos"
-					boxesPerRow={countColumn}
-					rowHeight={heightRow}
-					style={{ height: heightRow * Math.ceil(items.length / countColumn) }}
-				>
-					{
-						items.map(foto => {
-							return (<GridItem
-								className="grid-item"
-								key={foto.id}>
-								<PreviewItem foto={foto} deleteImage={deleteImage} setCoverImage={setCoverImage} />
-							</GridItem>)
-						})
-					}
-				</GridDropZone>
-			</GridContextProvider>
-		</div>
 	)
 }
 

@@ -71,7 +71,6 @@ const Instagram = () => {
 									const url = media_type === "CAROUSEL_ALBUM" || media_type === 'IMAGE' ? media_url : post.thumbnail_url
 									return (
 										<div
-
 											key={id}
 											className='photobox__item'>
 											<a

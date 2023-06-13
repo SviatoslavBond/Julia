@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearchLocation } from 'react-icons/fa'
 import { MdOutlineLocationSearching } from 'react-icons/md'
 import clsx from 'clsx';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import './selectCity.scss'
-const SelectCity = ({ changeHandler, name, blurHandler }) => {
+const SelectCity = ({ changeHandler, name, blurHandler, clear }) => {
 	const [address, setAdress] = useState('');
+
 	const onSelect = (adress) => {
 		changeHandler(adress);
 		setAdress(adress);
@@ -13,13 +14,18 @@ const SelectCity = ({ changeHandler, name, blurHandler }) => {
 	const onChange = (value) => {
 		setAdress(value);
 	}
+	useEffect(() => {
+		if (clear) {
+			setAdress('');
+		}
+	}, [clear])
+
 	return (
 		<PlacesAutocomplete
 			value={address}
 			onChange={onChange}
 			onSelect={onSelect}
 			debounce={500}
-
 		>
 			{
 				({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
@@ -62,6 +68,7 @@ const SelectCity = ({ changeHandler, name, blurHandler }) => {
 				)
 			}
 		</PlacesAutocomplete >
+
 	)
 }
 

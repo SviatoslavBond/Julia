@@ -1,23 +1,36 @@
 import React, { useEffect } from 'react'
 import AddStory from 'components/AddStory/CreateStory';
-import { Link, Routes, Route, Outlet, NavLink } from 'react-router-dom';
+import { Link, Routes, Route, NavLink, useNavigate } from 'react-router-dom';
 import Devider from 'components/UI/Devider/Devider';
 import EditPreviewer from 'components/EditPreviewer/EditPreviewer';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
-import AddStoryMUI from 'components/AddStoryMUI/AddStoryMUI';
 import { fetchStories } from 'components/Story/storySlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Error from 'components/ErrorPage/Error';
+import { StoryList } from 'components/AdminStories/StoryList/StoryList';
 import './admin.scss'
+import { Container } from '@mui/material';
 const Admin = () => {
 	const activeLink = ({ isActive }) => (isActive ? { color: "orange" } : { color: "white" });
-	const dispattch = useDispatch()
+	const error = useSelector(state => state.stories.storiesLoadingStatus)
+	const dispattch = useDispatch();
+	const navigate = useNavigate();
 	useEffect(() => {
 		dispattch(fetchStories())
-	})
+	}, []);
+
+	useEffect(() => {
+		if (error === 'error') {
+			navigate('/admin/add-story/error')
+		} else {
+			navigate('/admin/add-story')
+		}
+	}, [error])
+
 
 	return (
 		<div className='admin'>
-			<div className='container'>
+			<Container fixed	>
 				<div className='admin__wrap'>
 
 					<Link className='admin__logo' to='/' >
@@ -50,10 +63,6 @@ const Admin = () => {
 									<div className='admin__addStoryText'>Create new story</div>
 									<AiOutlinePlusCircle className='admin__addStoryIcon' />
 								</Link>
-								<Link to='/admin/add-story-MUI' className='admin__addStory'>
-									<div className='admin__addStoryText'>Add story MUI</div>
-									<AiOutlinePlusCircle className='admin__addStoryIcon' />
-								</Link>
 
 							</div>
 						</div>
@@ -61,24 +70,19 @@ const Admin = () => {
 						<div className='admin__main'>
 							<Routes>
 								<Route path='add-story' element={<AddStory />} />
-								<Route path='add-story-MUI' element={<AddStoryMUI />} />
-								<Route path='wedding' element={<p>Wedding</p>} />
-								<Route path='lovestory' element={<p>Love Story</p>} />
-								<Route path='content' element={<p>Content</p>} />
-								<Route path='family' element={<p>Family</p>} />
+								<Route path='add-story/error' element={<Error />} />
+								<Route path='wedding' element={<StoryList />} />
+								<Route path='lovestory' element={<StoryList />} />
+								<Route path='content' element={<StoryList />} />
+								<Route path='family' element={<StoryList />} />
+								<Route path='all-stories' element={<StoryList />} />
 								<Route path='drag' element={<EditPreviewer />} />
-								<Route path='all-stories' element={<p>All stories</p>} />
 							</Routes>
 						</div>
 
 					</div>
 				</div>
-			</div>
-
-
-
-
-
+			</Container>
 		</div>
 	)
 }

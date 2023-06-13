@@ -7,10 +7,10 @@ import LoveStory from 'pages/LoveStory/LoveStory';
 import Family from 'pages/Family/Family';
 import Albom from 'pages/Albom/Albom';
 import Admin from 'pages/AdminPanel/Admin';
-import AddStory from 'components/AddStory/CreateStory';
 import AOS from 'aos';
+import Error from 'components/ErrorPage/Error';
 import 'aos/dist/aos.css';
-
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -31,10 +31,9 @@ function App() {
 				<Route path='/lovestory' element={<LoveStory />} />
 				<Route path='/family' element={<Family />} />
 				<Route path='/story/:id/:category' element={<Albom />} />
-				<Route path='/admin/*' element={<Admin />}>
-					<Route path='add-story' element={<AddStory />} />
-				</Route>
-
+				<Route path='/admin/*' element={<Admin />} />
+				<Route path="/404" element={<Error />} />
+				<Route path="*" element={<Navigate to="/404" />} />
 			</Routes>
 		</BrowserRouter>
 
